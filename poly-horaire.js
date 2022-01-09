@@ -45,7 +45,7 @@
 
   let calendrierInfo;
   try {
-    let res = await fetch(`http://127.0.0.1:8080/sessions/${session}.txt`);
+    let res = await fetch(`https://nico14916.github.io/PolyHoraireICS/sessions/${session}.txt`);
     calendrierInfo = await res.text();
   } catch (err) {
     console.log(err);
