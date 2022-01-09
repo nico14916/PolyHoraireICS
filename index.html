@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <title>PolyHoraireICS</title>
+    <style></style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>PolyHoraireICS</h1>
+      <p>Exporter l'horaire du dossier étudiant en format ICS</p>
+      <pre><code>var script = document.createElement('script'); 
+script.src = "http://127.0.0.1:8080/poly-horaire.js";
+document.getElementsByTagName('head')[0].appendChild(script);</code></pre>
+      <p>Console : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd></p>
+      <footer class="container">
+        <p><a href="https://github.com/nico14916/PolyHoraireICS">Source</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
