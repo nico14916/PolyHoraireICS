@@ -1,4 +1,4 @@
-(async () => {
+export default async () => {
   let wrapper = document.querySelector(".wrapperPourListeCoursActuels");
 
   let cours = [];
@@ -45,7 +45,9 @@
 
   let calendrierInfo;
   try {
-    let res = await fetch(`https://nico14916.github.io/PolyHoraireICS/sessions/${session}.txt`);
+    let res = await fetch(
+      `https://nico14916.github.io/PolyHoraireICS/sessions/${session}.txt`
+    );
     calendrierInfo = await res.text();
   } catch (err) {
     console.log(err);
@@ -102,4 +104,4 @@ END:VCALENDAR`);
   document.body.appendChild(elem);
   elem.click();
   document.body.removeChild(elem);
-})();
+};

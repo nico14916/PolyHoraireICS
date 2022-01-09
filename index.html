@@ -14,9 +14,11 @@
     <main class="container">
       <h1>PolyHoraireICS</h1>
       <p>Exporter l'horaire du dossier étudiant en format ICS</p>
-      <pre><code>var script = document.createElement('script'); 
-script.src = "https://nico14916.github.io/PolyHoraireICS/poly-horaire.js";
-document.getElementsByTagName('head')[0].appendChild(script);</code></pre>
+      <p>
+        <code>
+          import('https://nico14916.github.io/PolyHoraireICS/poly-horaire.js').then(f=>f.default())
+        </code>
+      </p>
       <p>Console : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd></p>
       <footer class="container">
         <p><a href="https://github.com/nico14916/PolyHoraireICS">Source</a></p>
