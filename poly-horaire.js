@@ -10,29 +10,31 @@ export default async () => {
       .map((x) => parseInt(x, 10));
 
     for (let i = 1; i < 8; i++) {
-      let periodeInfo = rangee.children[i].lastChild.innerText.trim();
-      if (!periodeInfo) continue;
+      for (let elem of rangee.children[i].querySelectorAll(".inputEmulator")) {
+        let periodeInfo = elem.innerText.trim();
+        if (!periodeInfo) continue;
 
-      let existant = cours.find(
-        (c) => c.info == periodeInfo && c.jour == i && c.heureFin == heure
-      );
-      if (existant) {
-        existant.heureFin++;
-        continue;
+        let existant = cours.find(
+          (c) => c.info == periodeInfo && c.jour == i && c.heureFin == heure
+        );
+        if (existant) {
+          existant.heureFin++;
+          continue;
+        }
+
+        let semaine = null;
+        let match = periodeInfo.match(/\(B([1-2])\)/);
+        if (match) semaine = Number(match[1]);
+
+        cours.push({
+          info: periodeInfo,
+          jour: i % 7,
+          heureDebut: heure,
+          heureFin: heure + 1,
+          minute: minute,
+          semaine: semaine,
+        });
       }
-
-      let semaine = null;
-      let match = periodeInfo.match(/\(B([1-2])\)/);
-      if (match) semaine = Number(match[1]);
-
-      cours.push({
-        info: periodeInfo,
-        jour: i % 7,
-        heureDebut: heure,
-        heureFin: heure + 1,
-        minute: minute,
-        semaine: semaine,
-      });
     }
   }
   let formatDate = (d) => d.toISOString().split(".")[0].replace(/-|:/g, "");
